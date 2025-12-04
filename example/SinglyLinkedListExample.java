@@ -9,6 +9,9 @@ public class SinglyLinkedListExample {
     }
 
     private static void printSimpleSinglyLinkedList () {
+
+        System.out.print("Simple Singly Linked List: ");
+
         NodeSinglyLinkedList head = new NodeSinglyLinkedList(10);
 
         head.next = new NodeSinglyLinkedList(20);
@@ -24,6 +27,8 @@ public class SinglyLinkedListExample {
                 System.out.print(" -> ");
             }
         }
+
+        System.out.println();
 
     }
 
