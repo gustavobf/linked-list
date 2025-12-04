@@ -12,19 +12,19 @@ public class SinglyLinkedListExample {
 
     private static void printSimpleSinglyLinkedList () {
         System.out.print("Simple Singly Linked List: ");
-        print(getSimpleNodeSinglyLinkedList());
+        print(getNodeSinglyLinkedList());
         System.out.println();
     }
 
     private static void printSimpleSinglyLinkedListWithInsertionAtFront () {
         System.out.print("Simple Singly Linked List with insertion at beginning: ");
-        print(insertAtFront(getSimpleNodeSinglyLinkedList(), -10));
+        print(insertAtFront(getNodeSinglyLinkedList(), -10));
         System.out.println();
     }
 
     private static void printSimpleSinglyLinkedListWithInsertionAtEnd () {
         System.out.print("Simple Singly Linked List with insertion at end: ");
-        print(insertAtEnd(getSimpleNodeSinglyLinkedList(), 50));
+        print(insertAtEnd(getNodeSinglyLinkedList(), 50));
         System.out.println();
     }
 
@@ -41,13 +41,13 @@ public class SinglyLinkedListExample {
             return newNode;
         }
 
-        NodeSinglyLinkedList last = head;
+        NodeSinglyLinkedList curr = head;
 
-        while (last.next != null) {
-            last = last.next;
+        while (curr.next != null) {
+            curr = curr.next;
         }
 
-        last.next = newNode;
+        curr.next = newNode;
 
         return head;
 
@@ -63,7 +63,7 @@ public class SinglyLinkedListExample {
         }
     }
 
-    private static NodeSinglyLinkedList getSimpleNodeSinglyLinkedList () {
+    private static NodeSinglyLinkedList getNodeSinglyLinkedList () {
         NodeSinglyLinkedList head = new NodeSinglyLinkedList(10);
         head.next = new NodeSinglyLinkedList(20);
         head.next.next = new NodeSinglyLinkedList(30);
