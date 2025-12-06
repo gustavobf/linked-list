@@ -21,8 +21,19 @@ More types can be added in the future.
 
 ## ✅ Features
 
-- Create and manipulate singly and doubly linked lists  
-- Insert elements at the beginning or end
+- Create and manipulate a doubly linked list
+- Insert elements at the beginning (`prepend`)
+- Insert elements at the end (`append`)
+- Insert elements at any position (`insertAt`)
+- Remove an element by value (`remove`)
+- Remove an element by index (`removeAt`)
+- Check whether a value exists in the list (`contains`)
+- Get the first element (`getFirst`)
+- Get the last element (`getLast`)
+- Get an element by index (`get`)
+- Retrieve internal node by index (`getAt`)
+- Keep track of the current list size (`size`)
+- Maintain head, tail, and length for efficient operations
   
 More features can be added in the future.
 
