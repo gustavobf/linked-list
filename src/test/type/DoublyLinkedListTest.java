@@ -50,4 +50,21 @@ public class DoublyLinkedListTest {
         assertEquals(-5, list.getLast());
     }
 
+    @Test
+    public void testDoublyLinkedListContains () {
+        DoublyLinkedList<Integer> list = new DoublyLinkedList<>();
+        list.append(5);
+        list.append(15);
+        list.append(20);
+        assertTrue(list.contains(5));
+        assertTrue(list.contains(15));
+        assertTrue(list.contains(20));
+    }
+
+    @Test
+    public void testDoublyLinkedListContainsNull () {
+        DoublyLinkedList<Integer> list = new DoublyLinkedList<>();
+        assertFalse(list.contains(null));
+    }
+
 }

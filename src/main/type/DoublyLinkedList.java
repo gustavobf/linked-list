@@ -1,5 +1,7 @@
 package type;
 
+import java.util.*;
+
 class Node<T> {
     T value;
     Node<T> prev;
@@ -74,6 +76,22 @@ public class DoublyLinkedList<T> {
             return null;
         }
         return this.tail.value;
+    }
+
+    public boolean contains(T item) {
+        if (this.head == null) {
+            return false;
+        }
+
+        Node<T> curr = this.head;
+
+        while (curr != null) {
+            if (Objects.equals(curr.value, item)) {
+                return true;
+            }
+            curr = curr.next;
+        }
+        return false;
     }
 
 }
