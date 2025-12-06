@@ -78,7 +78,7 @@ public class DoublyLinkedList<T> {
         return this.tail.value;
     }
 
-    public boolean contains(T item) {
+    public boolean contains (T item) {
         if (this.head == null) {
             return false;
         }
@@ -94,4 +94,92 @@ public class DoublyLinkedList<T> {
         return false;
     }
 
+    public void insertAt (T item, int idx) {
+
+        if (idx < 0 || idx > this.length) {
+            throw new IndexOutOfBoundsException("oh no");
+        }
+
+        if (idx == this.length) {
+            this.append(item);
+            return;
+        } else if (idx == 0) {
+            this.prepend(item);
+            return;
+        }
+
+        Node<T> curr = this.head;
+        for (int i = 0; i < idx; i++) {
+            curr = curr.next;
+        }
+
+        Node<T> node = new Node(item);
+        Node<T> prev = curr.prev;
+
+        node.next = curr;
+        node.prev = prev;
+        curr.prev = node;
+
+        prev.next = node;
+        this.length++;
+    }
+
+    private Node<T> getAt (int idx) {
+        Node<T> curr = this.head;
+        for (int i = 0; curr != null && i < idx; i++) {
+            curr = curr.next;
+        }
+        return curr;
+    }
+
+    public T get (int idx) {
+        if (this.getAt(idx) == null) {
+            return null;
+        }
+        return this.getAt(idx).value;
+    }
+
+    public T remove (T item) {
+        Node<T> curr = this.head;
+
+        while (curr != null) {
+
+            if (Objects.equals(curr.value, item)) {
+
+                if (curr.prev == null) {
+                    this.head = curr.next;
+                } else {
+                    curr.prev.next = curr.next;
+                }
+
+                this.length--;
+                return curr.value;
+            }
+
+            curr = curr.next;
+        }
+        return null;
+    }
+
+    public T removeAt (int idx) {
+
+        if (this.getAt(idx) == null) {
+            return null;
+        }
+
+        Node<T> curr = this.head;
+
+        for (int i = 0; i < idx; i++) {
+            curr = curr.next;
+        }
+
+        if (curr.prev == null) {
+            this.head = curr.next;
+        } else {
+            curr.prev.next = curr.next;
+        }
+
+        this.length--;
+        return curr.value;
+    }
 }
